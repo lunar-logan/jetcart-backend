@@ -1,0 +1,10 @@
+Flask
+pymongo
+mongoengine
+arrow
+mongomock
+marshmallow
+Jinja2
+requests
+beautifulsoup4
+html5lib

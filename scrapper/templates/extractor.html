@@ -1,0 +1,63 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <title>Flipkart PDP extractor</title>
+</head>
+<body>
+<section class="section">
+    <h1 class="title">Flipkart PDP extractor</h1>
+    <form action="/" method="get">
+        <div class="field">
+            <input class="input" type="text" placeholder="Enter Flipkart PDP url and press enter" name="pdpUrl" value="{{ pdpUrl }}">
+        </div>
+    </form>
+    <div class="container">
+        <h1 class="title">Details</h1>
+        <div class="columns is-multiline">
+            <div class="column is-one-third">
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image is-1by1"
+                                style="background: center no-repeat url('{{ images[0] }}'); background-size: 'cover';">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="content">
+                            <p><strong>{{title}}</strong></p>
+                            <p>
+                                <strong>{{price}}</strong>&nbsp;
+                                <span><strike>{{price}}</strike></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="column">
+                <pre style="word-break: break-all;">{{ json }}</pre>
+            </div>
+        </div>
+        <hr>
+        <div class="notification is-info is-light">
+            <p><strong>Status</strong> {{ status_code }}</p>
+            <p><strong>Response</strong> {{ response }}</p>
+        </div>
+        <hr>
+        <h1 class="title">Images</h1>
+        <div class="columns is-multiline">
+            {% for image in images %}
+            <div class="column is-one-quarter">
+                <img src="{{ image }}" alt="">
+            </div>
+
+            {% endfor %}
+        </div>
+    </div>
+</section>
+</body>
+</html>
